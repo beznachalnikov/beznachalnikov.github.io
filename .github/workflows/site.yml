@@ -4,7 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "*/15 * * * *"
+    # не в начало часа и не в :15/:30/:45: в эти минуты GitHub перегружен и пропускает запуски
+    - cron: "7,22,37,52 * * * *"
   workflow_dispatch:
 
 permissions:
