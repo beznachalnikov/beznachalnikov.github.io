@@ -1,0 +1,60 @@
+name: site
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Забрать статистику с игрового сервера
+        run: python3 tools/update_stats.py
+
+      - name: Сохранить, если изменилась
+        id: commit
+        run: |
+          if [ -n "$(git status --porcelain public/data)" ]; then
+            git config user.name "stats-bot"
+            git config user.email "stats-bot@users.noreply.github.com"
+            git add public/data
+            git commit -m "stats: $(date -u +'%Y-%m-%d %H:%M') UTC"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  # сайт перевыкладывается, когда поменялась статистика или кто-то залил правку руками
+  deploy:
+    needs: stats
+    if: needs.stats.outputs.changed == 'true' || github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
