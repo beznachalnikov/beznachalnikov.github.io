@@ -39,6 +39,7 @@
 
     renderFriendsEmpty();
     renderTop();
+    renderStatus();
   }
 
   $$("[data-lang]").forEach((button) => {
@@ -228,12 +229,41 @@
     renderTop();
   });
 
+  // ---- сколько игроков сейчас ----
+
+  // ответ сервера старше этого уже не «сейчас», и полоска прячется
+  const STATUS_MAX_AGE = 45;
+  let status = null;
+
+  function renderStatus() {
+    const bar = $("#status");
+    const age = status ? Math.floor(Date.now() / 60000 - status.checked / 60) : Infinity;
+
+    bar.hidden = age > STATUS_MAX_AGE;
+    if (bar.hidden) return;
+
+    $("#status-players").textContent = t("status.players", { n: status.players, max: status.max });
+    $("#status-map").textContent = status.map;
+    $("#status-age").textContent = age < 1 ? t("status.now") : t("status.ago", { n: age });
+  }
+
+  // данные лежат скриптами, а не json: так страница открывается и просто с диска
+  function load(file, done, failed) {
+    const loader = document.createElement("script");
+    loader.src = file + "?t=" + Date.now();
+    loader.onload = () => { done(); loader.remove(); };
+    loader.onerror = () => { if (failed) failed(); loader.remove(); };
+    document.head.append(loader);
+  }
+
+  const loadStatus = () => load("data/status.js", () => { status = window.GG_STATUS; renderStatus(); });
+
   applyLang();
 
-  // данные лежат скриптом, а не json: так страница открывается и просто с диска
-  const loader = document.createElement("script");
-  loader.src = "data/stats.js?t=" + Date.now();
-  loader.onload = () => { stats = window.GG_STATS; renderTop(); };
-  loader.onerror = () => { statsFailed = true; renderTop(); };
-  document.head.append(loader);
+  load("data/stats.js", () => { stats = window.GG_STATS; renderTop(); }, () => { statsFailed = true; renderTop(); });
+  loadStatus();
+
+  // пока страница открыта: раз в минуту растёт «N мин назад», раз в пять минут проверяется, нет ли ответа свежее
+  setInterval(renderStatus, 60 * 1000);
+  setInterval(loadStatus, 5 * 60 * 1000);
 })();

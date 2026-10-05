@@ -38,6 +38,13 @@
 
 <section class="hero">
   <div class="wrap">
+    <!-- сколько игроков сейчас: появляется, только когда есть свежий ответ сервера (data/status.js) -->
+    <p class="status" id="status" hidden>
+      <span class="status__dot" aria-hidden="true"></span>
+      <span><span data-i18n="status.label">Сейчас на сервере</span> <strong id="status-players"></strong></span>
+      <span><span data-i18n="status.map">карта</span> <strong id="status-map"></strong></span>
+      <span class="status__age" id="status-age"></span>
+    </p>
     <div class="win hero__win" data-title="Servers">
       <div class="hero__main">
         <p class="kicker" data-i18n="hero.kicker">Counter-Strike 1.6 · каждый сам за себя</p>

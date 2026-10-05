@@ -40,10 +40,9 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-  # сайт перевыкладывается, когда поменялась статистика или кто-то залил правку руками
+  # сайт перевыкладывается при каждом запуске: вместе с ним обновляется полоска «сколько игроков сейчас»
   deploy:
     needs: stats
-    if: needs.stats.outputs.changed == 'true' || github.event_name != 'schedule'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -52,6 +51,9 @@ jobs:
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.ref }}
+
+      - name: Спросить у сервера, сколько сейчас игроков
+        run: python3 tools/update_status.py
 
       # у каждой выкладки свой номер версии в ссылках на стили и скрипты, иначе браузеры показывают старые
       - name: Проставить версию файлов

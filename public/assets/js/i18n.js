@@ -18,6 +18,12 @@ window.I18N = {
     "hero.join": "Подключиться",
     "hero.console": "Или в консоли игры:",
 
+    "status.label": "Сейчас на сервере",
+    "status.players": "{n} из {max}",
+    "status.map": "карта",
+    "status.now": "проверено только что",
+    "status.ago": "проверено {n} мин назад",
+
     "tg.text": "Наша группа: новости сервера, обновления и общение без начальства.",
     "tg.join": "Вступить в группу",
     "tg.foot": "Группа в Telegram",
@@ -115,6 +121,12 @@ window.I18N = {
     "hero.copied": "Copied",
     "hero.join": "Connect",
     "hero.console": "Or in the game console:",
+
+    "status.label": "On the server now",
+    "status.players": "{n} of {max}",
+    "status.map": "map",
+    "status.now": "checked just now",
+    "status.ago": "checked {n} min ago",
 
     "tg.text": "Our group: server news, updates and talk with no bosses around.",
     "tg.join": "Join the group",
