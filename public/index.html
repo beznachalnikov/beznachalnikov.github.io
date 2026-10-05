@@ -32,19 +32,30 @@
 
 <section class="hero">
   <div class="wrap">
-    <div class="win" data-title="Servers">
-      <p class="kicker">Counter-Strike 1.6 · GunGame · каждый сам за себя</p>
-      <h1 class="hero__title">[BEZ N@s9LNIK0V]</h1>
-      <p class="hero__slogan">No Bosses. No Rules. Pure GunGame. <em>Freedom of speech &amp; play.</em></p>
-      <div class="connect">
-        <div class="connect__addr">
-          <span class="connect__label">Адрес сервера</span>
-          <code data-address>149.50.98.60:27023</code>
+    <div class="win hero__win" data-title="Servers">
+      <div class="hero__main">
+        <p class="kicker">Counter-Strike 1.6 · GunGame · каждый сам за себя</p>
+        <h1 class="hero__title">[BEZ N@s9LNIK0V]</h1>
+        <p class="hero__slogan">No Bosses. No Rules. Pure GunGame. <em>Freedom of speech &amp; play.</em></p>
+        <div class="connect">
+          <div class="connect__addr">
+            <span class="connect__label">Адрес сервера</span>
+            <code data-address>149.50.98.60:27023</code>
+          </div>
+          <button class="btn" id="copy" type="button">Скопировать</button>
+          <a class="btn btn--gold" id="join" href="steam://connect/149.50.98.60:27023">Подключиться</a>
         </div>
-        <button class="btn" id="copy" type="button">Скопировать</button>
-        <a class="btn btn--gold" id="join" href="steam://connect/149.50.98.60:27023">Подключиться</a>
+        <p class="hint">Или в консоли игры: <code>connect <span data-address>149.50.98.60:27023</span></code></p>
       </div>
-      <p class="hint">Или в консоли игры: <code>connect <span data-address>149.50.98.60:27023</span></code></p>
+      <a class="tg" data-telegram href="#" target="_blank" rel="noopener">
+        <span class="tg__head">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M2 11.6 22 3l-3.6 18-6.1-4.8-3 3.5-.5-5.6L18.200 6.400 6.800 13.200z"/></svg>
+          Telegram
+        </span>
+        <strong class="tg__name" data-telegram-handle>Группа сервера</strong>
+        <span class="tg__text">Наша группа: новости сервера, обновления и общение без начальства.</span>
+        <span class="btn btn--gold tg__btn">Вступить в группу</span>
+      </a>
     </div>
   </div>
 </section>

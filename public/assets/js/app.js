@@ -39,6 +39,10 @@
     else node.hidden = true;
   });
 
+  // из https://t.me/название получается @название
+  const handle = telegram && telegram.replace(/\/+$/, "").split("/").pop();
+  if (handle) $$("[data-telegram-handle]").forEach((node) => { node.textContent = "@" + handle; });
+
   // порядок оружия
   (SITE.weapons || []).forEach(([name, kills]) => {
     const item = document.createElement("li");

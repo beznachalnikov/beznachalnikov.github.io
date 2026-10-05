@@ -64,6 +64,17 @@ code,kbd{font-family:var(--mono);font-size:.92em}
 .hint{font-size:11px;color:var(--mute)}
 .hint code{color:var(--text)}
 
+/* группа в Telegram: утопленная панель с выделенной, как строка лидера, шапкой */
+.hero__win{display:flex;align-items:center;gap:24px}
+.hero__main{flex:1;min-width:0}
+.tg{flex:0 0 320px;display:flex;flex-direction:column;align-items:flex-start;padding-bottom:14px;background:var(--well);border:1px solid;border-color:var(--lo) var(--hi) var(--hi) var(--lo);text-decoration:none}
+.tg__head{align-self:stretch;display:flex;align-items:center;gap:8px;padding:6px 12px;background:var(--select);font-weight:700;color:var(--white)}
+.tg__name{padding:12px 12px 2px;font-size:17px;line-height:1.2;color:var(--white);overflow-wrap:anywhere}
+.tg__text{padding:0 12px}
+.tg__btn{margin:12px 12px 0}
+.tg:hover .tg__btn{color:var(--white)}
+.tg:hover .tg__name{color:var(--gold)}
+
 /* заголовки разделов */
 .sec__head{margin-bottom:14px}
 h2{font-size:17px;line-height:1.2;color:var(--white)}
@@ -142,4 +153,6 @@ kbd{padding:1px 7px}
   .c-wide{display:none}
   .connect .btn{flex:1}
   .connect__addr{width:100%}
+  .hero__win{flex-direction:column;align-items:stretch;gap:16px}
+  .tg{flex:none}
 }
