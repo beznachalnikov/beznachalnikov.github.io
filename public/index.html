@@ -3,27 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>[BEZ N@s9LNIK0V] — GunGame сервер CS 1.6</title>
-<meta name="description" content="GunGame-сервер Counter-Strike 1.6 без начальников: каждый сам за себя, 25 уровней оружия, топ победителей и адрес для подключения.">
+<title>[BEZ N@s9LNIK0V] GunGame FFA — сервер CS 1.6</title>
+<meta name="description" content="GunGame FFA сервер Counter-Strike 1.6 без начальников: каждый сам за себя, топ победителей, правила и адрес для подключения.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="[BEZ N@s9LNIK0V] — GunGame сервер CS 1.6">
-<meta property="og:description" content="No Bosses. No Rules. Pure GunGame. Топ победителей и адрес сервера.">
+<meta property="og:title" content="[BEZ N@s9LNIK0V] GunGame FFA — CS 1.6">
+<meta property="og:description" content="No Bosses. No Rules. Pure GunGame. Freedom of speech &amp; play.">
 <meta name="theme-color" content="#4c5844">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/style.css">
+<!-- ?v=dev при выкладке заменяется номером версии (см. .github/workflows/site.yml), чтобы браузеры не держали старые файлы -->
+<link rel="stylesheet" href="assets/css/style.css?v=dev">
 </head>
 <body>
 
 <header class="head">
   <div class="wrap head__row">
-    <a class="brand" href="#">[BEZ N@s9LNIK0V]</a>
+    <a class="brand" href="#">[BEZ N@s9LNIK0V] <span>GunGame FFA</span></a>
     <nav class="nav" aria-label="Разделы">
-      <a href="#top">Топ</a>
-      <a href="#play">Как играть</a>
-      <a href="#rules">Правила</a>
-      <a href="#friends">Друзья</a>
+      <a href="#top" data-i18n="nav.top">Топ</a>
+      <a href="#play" data-i18n="nav.play">Как играть</a>
+      <a href="#vip" data-i18n="nav.vip">VIP</a>
+      <a href="#rules" data-i18n="nav.rules">Правила</a>
+      <a href="#story" data-i18n="nav.story">История</a>
+      <a href="#friends" data-i18n="nav.friends">Друзья</a>
     </nav>
-    <!-- место под группу в Telegram: кнопка появляется, когда в assets/js/config.js вписана ссылка -->
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ru">RU</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
     <a class="btn btn--gold" data-telegram href="#" target="_blank" rel="noopener">Telegram</a>
   </div>
 </header>
@@ -34,27 +40,27 @@
   <div class="wrap">
     <div class="win hero__win" data-title="Servers">
       <div class="hero__main">
-        <p class="kicker">Counter-Strike 1.6 · GunGame · каждый сам за себя</p>
-        <h1 class="hero__title">[BEZ N@s9LNIK0V]</h1>
+        <p class="kicker" data-i18n="hero.kicker">Counter-Strike 1.6 · каждый сам за себя</p>
+        <h1 class="hero__title">[BEZ N@s9LNIK0V] <span>GunGame FFA</span></h1>
         <p class="hero__slogan">No Bosses. No Rules. Pure GunGame. <em>Freedom of speech &amp; play.</em></p>
         <div class="connect">
           <div class="connect__addr">
-            <span class="connect__label">Адрес сервера</span>
+            <span class="connect__label" data-i18n="hero.addr">Адрес сервера</span>
             <code data-address>149.50.98.60:27023</code>
           </div>
-          <button class="btn" id="copy" type="button">Скопировать</button>
-          <a class="btn btn--gold" id="join" href="steam://connect/149.50.98.60:27023">Подключиться</a>
+          <button class="btn" id="copy" type="button" data-i18n="hero.copy">Скопировать</button>
+          <a class="btn btn--gold" id="join" href="steam://connect/149.50.98.60:27023" data-i18n="hero.join">Подключиться</a>
         </div>
-        <p class="hint">Или в консоли игры: <code>connect <span data-address>149.50.98.60:27023</span></code></p>
+        <p class="hint"><span data-i18n="hero.console">Или в консоли игры:</span> <code>connect <span data-address>149.50.98.60:27023</span></code></p>
       </div>
       <a class="tg" data-telegram href="#" target="_blank" rel="noopener">
         <span class="tg__head">
           <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M2 11.6 22 3l-3.6 18-6.1-4.8-3 3.5-.5-5.6L18.200 6.400 6.800 13.200z"/></svg>
           Telegram
         </span>
-        <strong class="tg__name" data-telegram-handle>Группа сервера</strong>
-        <span class="tg__text">Наша группа: новости сервера, обновления и общение без начальства.</span>
-        <span class="btn btn--gold tg__btn">Вступить в группу</span>
+        <strong class="tg__name" data-telegram-handle>Telegram</strong>
+        <span class="tg__text" data-i18n="tg.text">Наша группа: новости сервера, обновления и общение без начальства.</span>
+        <span class="btn btn--gold tg__btn" data-i18n="tg.join">Вступить в группу</span>
       </a>
     </div>
   </div>
@@ -64,7 +70,7 @@
   <div class="wrap">
     <div class="win" data-title="Scoreboard">
       <header class="sec__head">
-        <h2>Топ победителей</h2>
+        <h2 data-i18n="top.title">Топ победителей</h2>
         <p class="sec__note" id="record"></p>
       </header>
       <div class="table-wrap">
@@ -72,23 +78,23 @@
           <thead>
             <tr>
               <th class="c-rank">#</th>
-              <th>Игрок</th>
-              <th class="c-num">Победы</th>
-              <th class="c-num c-wide">Очки</th>
-              <th class="c-num" title="Лучшая серия побед подряд">Серия</th>
-              <th class="c-seen c-wide">Последняя игра</th>
+              <th data-i18n="top.player">Игрок</th>
+              <th class="c-num" data-i18n="top.wins">Победы</th>
+              <th class="c-num c-wide" data-i18n="top.points">Очки</th>
+              <th class="c-num" data-i18n="top.streak">Серия</th>
+              <th class="c-seen c-wide" data-i18n="top.seen">Последняя игра</th>
             </tr>
           </thead>
           <tbody id="top-body">
-            <tr><td colspan="6" class="top__empty">Загружаю статистику…</td></tr>
+            <tr><td colspan="6" class="top__empty" data-i18n="top.loading">Загружаю статистику…</td></tr>
           </tbody>
         </table>
       </div>
       <div class="sec__foot">
-        <button class="btn" id="show-all" type="button" hidden>Показать всех</button>
+        <button class="btn" id="show-all" type="button" hidden></button>
         <p class="hint" id="updated"></p>
       </div>
-      <p class="hint">Победа — это фраг гранатой на последнем, 25-м уровне. Очки дают за каждый пройденный уровень, даже если карту забрал другой. Серия — сколько карт подряд выиграно. Боты в статистику не попадают. В игре топ открывается командой <code>!top10</code>.</p>
+      <p class="hint" data-i18n="top.note">Победа — это фраг гранатой на последнем, 25-м уровне. Очки дают за каждый пройденный уровень, даже если карту забрал другой. Серия — сколько карт подряд выиграно. Боты в статистику не попадают. В игре топ открывается командой <code>!top10</code>.</p>
     </div>
   </div>
 </section>
@@ -97,41 +103,75 @@
   <div class="wrap">
     <div class="win" data-title="Game — GunGame FFA">
       <header class="sec__head">
-        <h2>Как тут играют</h2>
-        <p class="sec__note">Начинаешь с пистолета. Набил фраги — получил следующий ствол. Первый, кто дошёл до конца, забирает карту.</p>
+        <h2 data-i18n="play.title">Как тут играют</h2>
+        <p class="sec__note" data-i18n="play.note">Начинаешь с пистолета. Набил фраги — получил следующий ствол. Первый, кто дошёл до конца, забирает карту.</p>
       </header>
 
       <ul class="facts">
-        <li><h3>Каждый сам за себя</h3><p>Команд нет, союзников нет. Убили — через секунду ты снова в бою.</p></li>
-        <li><h3>25 уровней</h3><p>Обычно три фрага — и в руках следующий ствол. На некоторых уровнях нужно больше.</p></li>
-        <li><h3>Нож крадёт уровень</h3><p>Зарезал — поднялся на уровень, а жертва на уровень упала.</p></li>
-        <li><h3>Финал — граната</h3><p>Последний уровень. Убил гранатой — карта твоя.</p></li>
-        <li><h3>+5 HP за фраг</h3><p>Каждое убийство подлечивает, но не выше 100.</p></li>
-        <li><h3>Парашют</h3><p>Зажми <kbd>E</kbd> в воздухе — и падаешь медленно.</p></li>
-        <li><h3>AFK не кормит</h3><p>За убийство того, кто 30 секунд стоит без движения, уровень не дают.</p></li>
-        <li><h3>Все слышат всех</h3><p>Голосовой чат общий: живые и мёртвые, свои и чужие.</p></li>
+        <li><h3 data-i18n="fact1.t">Каждый сам за себя</h3><p data-i18n="fact1.p">Команд нет, союзников нет. Убили — через секунду ты снова в бою.</p></li>
+        <li><h3 data-i18n="fact2.t">25 уровней</h3><p data-i18n="fact2.p">Обычно три фрага — и в руках следующий ствол. На некоторых уровнях нужно больше.</p></li>
+        <li><h3 data-i18n="fact3.t">Нож крадёт уровень</h3><p data-i18n="fact3.p">Зарезал — поднялся на уровень, а жертва на уровень упала.</p></li>
+        <li><h3 data-i18n="fact4.t">Финал — граната</h3><p data-i18n="fact4.p">Последний уровень. Убил гранатой — карта твоя.</p></li>
+        <li><h3 data-i18n="fact5.t">+5 HP за фраг</h3><p data-i18n="fact5.p">Каждое убийство подлечивает, но не выше 100.</p></li>
+        <li><h3 data-i18n="fact6.t">Парашют</h3><p data-i18n="fact6.p">Зажми <kbd>E</kbd> в воздухе — и падаешь медленно.</p></li>
+        <li><h3 data-i18n="fact7.t">AFK не кормит</h3><p data-i18n="fact7.p">За убийство того, кто 30 секунд стоит без движения, уровень не дают.</p></li>
+        <li><h3 data-i18n="fact8.t">Все слышат всех</h3><p data-i18n="fact8.p">Голосовой чат общий: живые и мёртвые, свои и чужие.</p></li>
       </ul>
-
-      <h3 class="sub">Порядок оружия</h3>
-      <ol class="ladder" id="ladder"></ol>
 
       <div class="cols">
         <div>
-          <h3 class="sub">Команды в чате</h3>
+          <h3 class="sub" data-i18n="play.cmds">Команды в чате</h3>
           <dl class="cmds">
-            <div><dt><code>!top10</code></dt><dd>топ сервера</dd></div>
-            <div><dt><code>!level</code></dt><dd>твой уровень и отставание от лидера</dd></div>
-            <div><dt><code>!score</code></dt><dd>уровни всех игроков</dd></div>
-            <div><dt><code>!weapons</code></dt><dd>порядок оружия</dd></div>
-            <div><dt><code>/lang</code></dt><dd>язык: English, Русский, Українська</dd></div>
-            <div><dt><code>/cam</code></dt><dd>вид от третьего лица</dd></div>
-            <div><dt><code>/voteban</code></dt><dd>голосование за бан игрока</dd></div>
+            <div><dt><code>!top10</code></dt><dd data-i18n="cmd.top10">топ сервера</dd></div>
+            <div><dt><code>!level</code></dt><dd data-i18n="cmd.level">твой уровень и отставание от лидера</dd></div>
+            <div><dt><code>!score</code></dt><dd data-i18n="cmd.score">уровни всех игроков</dd></div>
+            <div><dt><code>!weapons</code></dt><dd data-i18n="cmd.weapons">порядок оружия</dd></div>
+            <div><dt><code>/lang</code></dt><dd data-i18n="cmd.lang">язык: English, Русский, Українська</dd></div>
+            <div><dt><code>/cam</code></dt><dd data-i18n="cmd.cam">вид от третьего лица</dd></div>
+            <div><dt><code>/voteban</code></dt><dd data-i18n="cmd.voteban">голосование за бан игрока</dd></div>
           </dl>
         </div>
         <div>
-          <h3 class="sub">Карты <span class="count" id="maps-count"></span></h3>
+          <h3 class="sub"><span data-i18n="play.maps">Карты</span> <span class="count" id="maps-count"></span></h3>
           <ul class="chips" id="maps"></ul>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="vip">
+  <div class="wrap">
+    <div class="win" data-title="VIP — Model viewer">
+      <header class="sec__head">
+        <h2>VIP</h2>
+        <p class="sec__note" data-i18n="vip.note">Сервер не ставит целью заработать. У админа и у VIP не больше власти, чем у любого другого игрока.</p>
+      </header>
+      <div class="vip">
+        <div class="vip__text">
+          <p data-i18n="vip.what">Всё, что получает VIP, — уникальная модель и цветной ник с меткой <b>[VIP]</b> в чате.</p>
+          <p class="hint" data-i18n="vip.hint">Наведи мышку или нажми на модель — она повернётся.</p>
+          <p><a class="btn btn--gold" data-telegram href="#" target="_blank" rel="noopener" data-i18n="vip.how">Как получить VIP — спроси в нашей группе в Telegram.</a></p>
+        </div>
+        <!-- кадры идут по кругу: спереди, сбоку, сзади и тот же бок в зеркале -->
+        <figure class="model">
+          <div class="model__view" data-model tabindex="0" role="button" aria-label="Naruto">
+            <img class="is-on" src="assets/img/naruto-front.webp" width="520" height="530" alt="Naruto">
+            <img src="assets/img/naruto-side.webp" width="520" height="530" alt="">
+            <img src="assets/img/naruto-back.webp" width="520" height="530" alt="">
+            <img class="is-flip" src="assets/img/naruto-side.webp" width="520" height="530" alt="">
+          </div>
+          <figcaption><strong>Naruto</strong> <span data-i18n="vip.ct">модель за контр-террористов</span></figcaption>
+        </figure>
+        <figure class="model">
+          <div class="model__view" data-model tabindex="0" role="button" aria-label="Sasuke">
+            <img class="is-on" src="assets/img/sasuke-front.webp" width="520" height="530" alt="Sasuke">
+            <img src="assets/img/sasuke-side.webp" width="520" height="530" alt="">
+            <img src="assets/img/sasuke-back.webp" width="520" height="530" alt="">
+            <img class="is-flip" src="assets/img/sasuke-side.webp" width="520" height="530" alt="">
+          </div>
+          <figcaption><strong>Sasuke</strong> <span data-i18n="vip.t">модель за террористов</span></figcaption>
+        </figure>
       </div>
     </div>
   </div>
@@ -141,15 +181,32 @@
   <div class="wrap">
     <div class="win" data-title="Rules">
       <header class="sec__head">
-        <h2>Правила</h2>
-        <p class="sec__note">Начальников нет. Правил — ровно столько, чтобы всем было где играть.</p>
+        <h2 data-i18n="rules.title">Правила</h2>
+        <p class="sec__note" data-i18n="rules.note">Начальников нет. Правил — ровно столько, чтобы всем было где играть.</p>
       </header>
       <ol class="rules">
-        <li><p><strong>Без читов.</strong> Аим, вх и скрипты ради преимущества — бан.</p></li>
-        <li><p><strong>Не думай, что говоришь.</strong> Травля, угрозы, политика — фри спич.</p></li>
-        <li><p><strong>Без рекламы и спама.</strong> Ни в чате, ни в голосе.</p></li>
-        <li><p><strong>Баны решают только игроки.</strong> Вотебан — <code>/voteban</code>.</p></li>
+        <li><p data-i18n="rule1"><strong>Без читов.</strong> Аим, вх и скрипты ради преимущества — бан.</p></li>
+        <li><p data-i18n="rule2"><strong>Не думай, что говоришь.</strong> Травля, угрозы, политика — фри спич.</p></li>
+        <li><p data-i18n="rule3"><strong>Без рекламы и спама.</strong> Ни в чате, ни в голосе.</p></li>
+        <li><p data-i18n="rule4"><strong>Баны решают только игроки.</strong> Вотебан — <code>/voteban</code>.</p></li>
       </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="story">
+  <div class="wrap">
+    <div class="win" data-title="Story">
+      <header class="sec__head">
+        <h2 data-i18n="story.title">История создания сервера</h2>
+      </header>
+      <div class="story">
+        <p data-i18n="story.p1">Жили-были два игрока — Obito и sce_nox. Как настоящие тестостероновые друзья, они то и дело сходились в бою на серверах GunGame — друг против друга. Равных им не было: даже на самых забитых серверах в топе стояли только эти двое.</p>
+        <p data-i18n="story.p2">Шло время. Комьюнити 1.6 беднело, серверов становилось всё меньше, пока не остался единственный GunGame, где они ещё могли скрестить мечи.</p>
+        <p data-i18n="story.p3">Но админ того сервера оказался настолько мелочным и эгоистичным, что стал мешать их соперничеству. Он ныл, что сервер вот-вот закроется, выпрашивал донаты, а в конце концов начал мешать игрокам встретиться: банил одного из них и оправдывался «решением сервера» — в надежде на хабар.</p>
+        <p data-i18n="story.p4">Да, так устроен мир: что-то гнусное и плохое становится причиной чего-то светлого и прекрасного. Так вышло и здесь. Они создали своё пространство, где бои не останавливаются ни на минуту. Унылый админ того сервера стал зерном, из которого вырос новый сервер.</p>
+        <p data-i18n="story.p5">В честь этого его лицо встречает каждого, кто заходит на сервер. А чтобы принести ему чуть больше боли, чем приносит жизнь, они, как истинные шиноби, запечатали этого демона в скине гранаты. Познакомиться с ним можно на сервере.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -158,12 +215,12 @@
   <div class="wrap">
     <div class="win" data-title="Friends">
       <header class="sec__head">
-        <h2>Друзья</h2>
-        <p class="sec__note">Серверы и сайты, с которыми мы дружим.</p>
+        <h2 data-i18n="friends.title">Друзья</h2>
+        <p class="sec__note" data-i18n="friends.note">Серверы и сайты, с которыми мы дружим.</p>
       </header>
       <ul class="friends" id="friends-list"></ul>
 
-      <h3 class="sub">Сервер в мониторингах</h3>
+      <h3 class="sub" data-i18n="friends.monitoring">Сервер в мониторингах</h3>
       <!-- сюда вставляются коды кнопок и баннеров, которые дают мониторинги, один за другим -->
       <div class="badges">
         <a title="Лучшие сервера Counter Strike" href="https://cs-best.org.ua/"><img alt="Лучшие сервера Counter Strike" border=0 width=88 height=31 src="https://static.cs-best.org.ua/img/csbest88x31.gif"></a>
@@ -176,14 +233,15 @@
 
 <footer class="foot">
   <div class="wrap foot__row">
-    <span class="brand">[BEZ N@s9LNIK0V]</span>
-    <span>GunGame · Counter-Strike 1.6 · <code data-address>149.50.98.60:27023</code></span>
-    <span>Сервер сделали Obito и sce_nox</span>
-    <a data-telegram href="#" target="_blank" rel="noopener">Группа в Telegram</a>
+    <span class="brand">[BEZ N@s9LNIK0V] <span>GunGame FFA</span></span>
+    <span>Counter-Strike 1.6 · <code data-address>149.50.98.60:27023</code></span>
+    <span data-i18n="foot.made">Сервер сделали Obito и sce_nox</span>
+    <a data-telegram href="#" target="_blank" rel="noopener" data-i18n="tg.foot">Группа в Telegram</a>
   </div>
 </footer>
 
-<script src="assets/js/config.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/config.js?v=dev"></script>
+<script src="assets/js/i18n.js?v=dev"></script>
+<script src="assets/js/app.js?v=dev"></script>
 </body>
 </html>

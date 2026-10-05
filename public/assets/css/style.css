@@ -29,15 +29,20 @@ code,kbd{font-family:var(--mono);font-size:.92em}
 /* выпуклая рамка: окна и кнопки */
 .win,.win::after,.btn{border:1px solid;border-color:var(--hi) var(--lo) var(--lo) var(--hi)}
 /* утопленная рамка: поля, списки, карточки */
-.connect__addr,.table-wrap,.facts li,.ladder li,.chips li,.friends a,.friends__empty,kbd{background:var(--well);border:1px solid;border-color:var(--lo) var(--hi) var(--hi) var(--lo)}
+.connect__addr,.table-wrap,.facts li,.chips li,.model,.friends a,.friends__empty,kbd{background:var(--well);border:1px solid;border-color:var(--lo) var(--hi) var(--hi) var(--lo)}
 
 /* шапка */
 .head{position:sticky;top:0;z-index:10;background:var(--window);border-bottom:1px solid var(--lo);box-shadow:inset 0 1px 0 var(--hi)}
 .head__row{display:flex;align-items:center;gap:8px 20px;min-height:44px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
 .brand{font-weight:700;font-size:14px;color:var(--white);text-decoration:none;white-space:nowrap}
+.brand span,.hero__title span{color:var(--gold)}
+.brand span{margin-left:4px;font-weight:400}
 .nav{display:flex;gap:2px;margin-left:auto}
 .nav a{padding:6px 10px;font-size:12px;text-decoration:none;white-space:nowrap}
 .nav a:hover{color:var(--gold)}
+.lang{display:flex}
+.lang button{padding:6px 9px;background:var(--window);border:1px solid;border-color:var(--hi) var(--lo) var(--lo) var(--hi);font:12px/1.4 var(--font);color:var(--text);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--well);border-color:var(--lo) var(--hi) var(--hi) var(--lo);color:var(--gold)}
 
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;background:var(--window);color:var(--white);font:12px/1.4 var(--font);text-decoration:none;cursor:pointer;white-space:nowrap}
@@ -55,7 +60,8 @@ code,kbd{font-family:var(--mono);font-size:.92em}
 
 /* первый экран */
 .kicker{font-size:11px;color:var(--mute)}
-.hero__title{margin:6px 0 8px;font-size:clamp(22px,4.4vw,30px);line-height:1.15;color:var(--white);overflow-wrap:anywhere}
+.hero__title{margin:6px 0 8px;font-size:clamp(21px,4vw,26px);line-height:1.2;color:var(--white)}
+.hero__title span{white-space:nowrap}
 .hero__slogan em{font-style:normal;color:var(--gold)}
 .connect{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:18px 0 10px}
 .connect__addr{display:flex;flex-direction:column;justify-content:center;padding:4px 12px}
@@ -104,16 +110,6 @@ h2{font-size:17px;line-height:1.2;color:var(--white)}
 .facts p{font-size:12px}
 kbd{padding:1px 7px}
 
-/* порядок оружия */
-.ladder{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px;counter-reset:level}
-.ladder li{counter-increment:level;display:flex;align-items:center;gap:10px;padding:5px 10px;font-size:12px}
-.ladder li::before{content:counter(level);min-width:1.5em;color:var(--mute)}
-.ladder li span{flex:1}
-.ladder li b{color:var(--gold)}
-.ladder li:last-child{background:var(--select);color:var(--white)}
-.ladder li:last-child::before{color:inherit}
-.ladder li:last-child b{display:none}
-
 /* команды и карты */
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
 .cmds div{display:flex;gap:14px;padding:5px 0;border-bottom:1px solid var(--well)}
@@ -121,6 +117,22 @@ kbd{padding:1px 7px}
 .cmds dt code{font-weight:700;color:var(--gold)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips li{padding:4px 10px;font:11px var(--mono)}
+
+/* VIP: текст и две модели, которые поворачиваются */
+.vip{display:grid;grid-template-columns:minmax(0,1fr) 270px 270px;gap:8px;align-items:start}
+.vip__text{display:grid;gap:10px;justify-items:start;padding-right:12px}
+.vip__text b{color:var(--gold)}
+.vip__text .btn{white-space:normal;text-align:left}
+.model{margin:0}
+.model__view{position:relative;aspect-ratio:520/530;overflow:hidden;background:#3b3b3b;cursor:pointer}
+.model__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;visibility:hidden}
+.model__view img.is-on{visibility:visible}
+.model__view img.is-flip{transform:scaleX(-1)}
+.model figcaption{padding:6px 12px 8px;font-size:12px}
+.model figcaption strong{margin-right:4px;color:var(--white)}
+
+/* история */
+.story{display:grid;gap:10px;max-width:50em}
 
 /* правила */
 .rules{counter-reset:rule;display:grid;gap:6px;max-width:760px}
@@ -148,11 +160,17 @@ kbd{padding:1px 7px}
 @media (max-width:720px){
   .wrap{padding:0 12px}
   .nav{order:3;width:100%;margin:0 -8px;overflow-x:auto}
-  .head .btn{margin-left:auto}
   .cols{grid-template-columns:1fr}
   .c-wide{display:none}
   .connect .btn{flex:1}
   .connect__addr{width:100%}
   .hero__win{flex-direction:column;align-items:stretch;gap:16px}
   .tg{flex:none}
+  .head .lang{margin-left:auto}
+  .head .btn{margin-left:0}
+  .vip{grid-template-columns:1fr 1fr}
+  .vip__text{grid-column:1/-1;padding-right:0}
+}
+@media (max-width:520px){
+  .head .brand span{display:none}
 }
