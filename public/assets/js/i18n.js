@@ -1,8 +1,8 @@
 // Все тексты сайта на двух языках. Ключ совпадает с data-i18n в index.html; {n}, {name}, {date} — подстановки.
 window.I18N = {
   ru: {
-    "meta.title": "[BEZ N@s9LNIK0V] GunGame FFA — сервер CS 1.6",
-    "meta.desc": "GunGame FFA сервер Counter-Strike 1.6 без начальников: каждый сам за себя, топ победителей, правила и адрес для подключения.",
+    "meta.title": "GunGame сервер КС 1.6, Украина — гангейм FFA [BEZ N@s9LNIK0V]",
+    "meta.desc": "GunGame (гангейм) сервер CS 1.6 в Украине: ДМ, каждый сам за себя, 25 уровней, нож крадёт уровень. Steam и Non-Steam. IP сервера: 149.50.98.60:27023.",
 
     "nav.top": "Топ",
     "nav.play": "Как играть",
@@ -11,8 +11,8 @@ window.I18N = {
     "nav.story": "История",
     "nav.friends": "Друзья",
 
-    "hero.kicker": "Counter-Strike 1.6 · каждый сам за себя",
-    "hero.addr": "Адрес сервера",
+    "hero.kicker": "GunGame сервер КС 1.6 · Украина · каждый сам за себя",
+    "hero.addr": "IP сервера",
     "hero.copy": "Скопировать",
     "hero.copied": "Скопировано",
     "hero.join": "Подключиться",
@@ -47,6 +47,7 @@ window.I18N = {
     "time.days": "{n} дн. назад",
 
     "play.title": "Как тут играют",
+    "play.about": "GunGame (гангейм, GG) сервер для КС 1.6 в Украине. Режим — ДМ «каждый сам за себя» (FFA): команд нет, возрождение сразу. Заходят и со Steam, и без Steam. Никаких «пушек и лазеров»: оружие у всех одинаковое и выдаётся по уровням.",
     "play.note": "Начинаешь с пистолета. Набил фраги — получил следующий ствол. Первый, кто дошёл до конца, забирает карту.",
     "fact1.t": "Каждый сам за себя",
     "fact1.p": "Команд нет, союзников нет. Убили — через секунду ты снова в бою.",
@@ -105,8 +106,8 @@ window.I18N = {
   },
 
   en: {
-    "meta.title": "[BEZ N@s9LNIK0V] GunGame FFA — CS 1.6 server",
-    "meta.desc": "A GunGame FFA server for Counter-Strike 1.6 with no bosses: everyone for themselves, the winners' top, the rules and the address to connect.",
+    "meta.title": "CS 1.6 GunGame server, Ukraine — FFA deathmatch [BEZ N@s9LNIK0V]",
+    "meta.desc": "Counter-Strike 1.6 GunGame (GG) server in Ukraine: FFA deathmatch, 25 levels, the knife steals a level. Steam and non-Steam. Server IP: 149.50.98.60:27023.",
 
     "nav.top": "Top",
     "nav.play": "How to play",
@@ -115,8 +116,8 @@ window.I18N = {
     "nav.story": "Story",
     "nav.friends": "Friends",
 
-    "hero.kicker": "Counter-Strike 1.6 · everyone for themselves",
-    "hero.addr": "Server address",
+    "hero.kicker": "CS 1.6 GunGame server · Ukraine · everyone for themselves",
+    "hero.addr": "Server IP",
     "hero.copy": "Copy",
     "hero.copied": "Copied",
     "hero.join": "Connect",
@@ -151,6 +152,7 @@ window.I18N = {
     "time.days": "{n} d ago",
 
     "play.title": "How it is played",
+    "play.about": "A GunGame (GG) server for Counter-Strike 1.6, hosted in Ukraine. The mode is FFA deathmatch: no teams, instant respawn. Steam and non-Steam players are both welcome. No custom super-weapons: everyone gets the same guns, level by level.",
     "play.note": "You start with a pistol. Get the frags and you get the next gun. The first one to reach the end takes the map.",
     "fact1.t": "Everyone for themselves",
     "fact1.p": "No teams, no allies. You get killed and a second later you are back in the fight.",

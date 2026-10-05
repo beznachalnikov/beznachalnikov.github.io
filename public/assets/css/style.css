@@ -41,8 +41,8 @@ code,kbd{font-family:var(--mono);font-size:.92em}
 .nav a{padding:6px 10px;font-size:12px;text-decoration:none;white-space:nowrap}
 .nav a:hover{color:var(--gold)}
 .lang{display:flex}
-.lang button{padding:6px 9px;background:var(--window);border:1px solid;border-color:var(--hi) var(--lo) var(--lo) var(--hi);font:12px/1.4 var(--font);color:var(--text);cursor:pointer}
-.lang button[aria-pressed="true"]{background:var(--well);border-color:var(--lo) var(--hi) var(--hi) var(--lo);color:var(--gold)}
+.lang a{padding:6px 9px;background:var(--window);border:1px solid;border-color:var(--hi) var(--lo) var(--lo) var(--hi);font:12px/1.4 var(--font);color:var(--text);text-decoration:none;cursor:pointer}
+.lang a[aria-current="true"]{background:var(--well);border-color:var(--lo) var(--hi) var(--hi) var(--lo);color:var(--gold)}
 
 /* кнопки */
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;background:var(--window);color:var(--white);font:12px/1.4 var(--font);text-decoration:none;cursor:pointer;white-space:nowrap}

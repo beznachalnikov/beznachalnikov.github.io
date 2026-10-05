@@ -59,6 +59,10 @@ jobs:
       - name: Проставить версию файлов
         run: sed -i "s/?v=dev/?v=${GITHUB_SHA::8}/g" public/index.html
 
+      # после версии: английская страница собирается из уже готовой русской
+      - name: Собрать английскую страницу
+        run: python3 tools/build_en.py
+
       - uses: actions/upload-pages-artifact@v5
         with:
           path: public

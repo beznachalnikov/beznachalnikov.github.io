@@ -7,19 +7,24 @@
   const TOP_LIMIT = 15;
   const telegram = SITE.telegram;
 
-  let lang = pickLang();
+  // Язык задаёт сама страница: / — русская, /en/ — английская (её собирает tools/build_en.py).
+  // По языку браузера страница не переключается: поисковик читает её «английским» браузером и не увидел бы русский текст.
+  const html = document.documentElement;
+  const lang = I18N[html.lang] ? html.lang : "ru";
+  const ROOT = html.dataset.root || "";   // путь до корня сайта: "" или "../"
+  const FROM_DISK = location.protocol === "file:";   // с диска папка сама страницу не откроет
+
   let stats = null, statsFailed = false, showAll = false;
 
   // ---- язык ----
 
-  // ?lang=en в адресе, потом прошлый выбор, потом язык браузера
-  function pickLang() {
+  // кто раньше выбрал английский или пришёл по старой ссылке ?lang=en, попадает на английскую страницу
+  if (lang === "ru") {
     let saved = null;
     try { saved = localStorage.getItem("lang"); } catch (error) { /* хранилище бывает закрыто */ }
 
-    const browser = /^(ru|uk|be|kk)/i.test(navigator.language || "") ? "ru" : "en";
-    const choice = new URLSearchParams(location.search).get("lang") || saved || browser;
-    return I18N[choice] ? choice : "ru";
+    const asked = new URLSearchParams(location.search).get("lang");
+    if (asked === "en" || (!asked && saved === "en")) location.replace("en/" + (FROM_DISK ? "index.html" : "") + location.hash);
   }
 
   function t(key, vars) {
@@ -35,18 +40,19 @@
 
     // в словаре встречается разметка (<code>, <strong>), строки там только наши
     $$("[data-i18n]").forEach((node) => { node.innerHTML = t(node.dataset.i18n); });
-    $$("[data-lang]").forEach((button) => { button.setAttribute("aria-pressed", String(button.dataset.lang === lang)); });
 
     renderFriendsEmpty();
     renderTop();
     renderStatus();
   }
 
-  $$("[data-lang]").forEach((button) => {
-    button.addEventListener("click", () => {
-      lang = button.dataset.lang;
-      try { localStorage.setItem("lang", lang); } catch (error) { /* не запомнится, и ладно */ }
-      applyLang();
+  // RU и EN — ссылки на две страницы; выбор запоминается
+  $$("[data-lang]").forEach((link) => {
+    if (link.dataset.lang === lang) link.setAttribute("aria-current", "true");
+    if (FROM_DISK) link.href += "index.html";
+
+    link.addEventListener("click", () => {
+      try { localStorage.setItem("lang", link.dataset.lang); } catch (error) { /* не запомнится, и ладно */ }
     });
   });
 
@@ -250,7 +256,7 @@
   // данные лежат скриптами, а не json: так страница открывается и просто с диска
   function load(file, done, failed) {
     const loader = document.createElement("script");
-    loader.src = file + "?t=" + Date.now();
+    loader.src = ROOT + file + "?t=" + Date.now();
     loader.onload = () => { done(); loader.remove(); };
     loader.onerror = () => { if (failed) failed(); loader.remove(); };
     document.head.append(loader);
