@@ -72,6 +72,7 @@ window.I18N = {
     "cmd.weapons": "порядок оружия",
     "cmd.lang": "язык: English, Русский",
     "cmd.cam": "вид от третьего лица",
+    "cmd.mute": "закрыть уши от игрока или от всех",
     "cmd.voteban": "голосование за бан игрока",
     "play.maps": "Карты",
 
@@ -177,6 +178,7 @@ window.I18N = {
     "cmd.weapons": "the weapon order",
     "cmd.lang": "language: English, Русский",
     "cmd.cam": "third-person view",
+    "cmd.mute": "close your ears to a player or to everyone",
     "cmd.voteban": "a vote to ban a player",
     "play.maps": "Maps",
 
