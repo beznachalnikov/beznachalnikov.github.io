@@ -29,6 +29,7 @@
     <nav class="nav" aria-label="Разделы">
       <a href="#top" data-i18n="nav.top">Топ</a>
       <a href="#play" data-i18n="nav.play">Как играть</a>
+      <a href="#chutes" data-i18n="nav.chutes">Парашюты</a>
       <a href="#vip" data-i18n="nav.vip">VIP</a>
       <a href="#rules" data-i18n="nav.rules">Правила</a>
       <a href="#story" data-i18n="nav.story">История</a>
@@ -129,7 +130,7 @@
         <li><h3 data-i18n="fact3.t">Нож крадёт уровень</h3><p data-i18n="fact3.p">Зарезал — поднялся на уровень, а жертва на уровень упала.</p></li>
         <li><h3 data-i18n="fact4.t">Финал — граната</h3><p data-i18n="fact4.p">Последний уровень. Убил гранатой — карта твоя.</p></li>
         <li><h3 data-i18n="fact5.t">+5 HP за фраг</h3><p data-i18n="fact5.p">Каждое убийство подлечивает, но не выше 100.</p></li>
-        <li><h3 data-i18n="fact6.t">Парашют</h3><p data-i18n="fact6.p">Зажми <kbd>E</kbd> в воздухе — и падаешь медленно.</p></li>
+        <li><h3 data-i18n="fact6.t">Парашют</h3><p data-i18n="fact6.p">Зажми <kbd>E</kbd> в воздухе — и падаешь медленно. Парашютов пять, выбирай командой <code>/парашют</code>.</p></li>
         <li><h3 data-i18n="fact7.t">AFK не кормит</h3><p data-i18n="fact7.p">За убийство того, кто 30 секунд стоит без движения, уровень не дают.</p></li>
         <li><h3 data-i18n="fact8.t">Все слышат всех</h3><p data-i18n="fact8.p">Голосовой чат общий: живые и мёртвые, свои и чужие.</p></li>
       </ul>
@@ -144,6 +145,8 @@
             <div><dt><code>!weapons</code></dt><dd data-i18n="cmd.weapons">порядок оружия</dd></div>
             <div><dt><code>/lang</code></dt><dd data-i18n="cmd.lang">язык: English, Русский</dd></div>
             <div><dt><code>/cam</code></dt><dd data-i18n="cmd.cam">вид от третьего лица</dd></div>
+            <div><dt><code>/парашют</code></dt><dd data-i18n="cmd.chute">выбрать парашют</dd></div>
+            <div><dt><code>/rank</code></dt><dd data-i18n="cmd.rank">твой ранг и сколько побед до следующего</dd></div>
             <div><dt><code>/mute</code></dt><dd data-i18n="cmd.mute">закрыть уши от игрока или от всех</dd></div>
             <div><dt><code>/voteban</code></dt><dd data-i18n="cmd.voteban">голосование за бан игрока</dd></div>
           </dl>
@@ -153,6 +156,68 @@
           <ul class="chips" id="maps"></ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="chutes">
+  <div class="wrap">
+    <div class="win" data-title="Parachutes — Naruto">
+      <header class="sec__head">
+        <h2 data-i18n="chutes.title">Парашюты</h2>
+        <p class="sec__note" data-i18n="chutes.note">Вместо обычного парашюта — пять из мира «Наруто». Чем выше твой ранг шиноби, тем реже парашют; открытые остаются с тобой.</p>
+      </header>
+      <ul class="chutes">
+        <li class="chute">
+          <img src="assets/img/chute-neji.webp" width="600" height="338" loading="lazy" alt="Neji — Hakke Kaiten parachute">
+          <div class="chute__body">
+            <h3 data-i18n="chute1.t">Нэджи · Хакке Кайтен</h3>
+            <p data-i18n="chute1.p">Синий купол чакры вращается вокруг тебя, под ногами — диск с триграммами. При закрытии расходится волна.</p>
+            <p class="chute__rank" data-i18n="chute1.r">Ранг <b class="rank rank--0">ACADEMY</b> · открыт всем</p>
+          </div>
+        </li>
+        <li class="chute">
+          <img src="assets/img/chute-konan.webp" width="600" height="338" loading="lazy" alt="Konan — angel wings parachute">
+          <div class="chute__body">
+            <h3 data-i18n="chute2.t">Конан · Ангельские крылья</h3>
+            <p data-i18n="chute2.p">Огромные бумажные крылья раскрываются за спиной и плавно качаются в падении. Закрыл парашют — облачко бумажной пыли.</p>
+            <p class="chute__rank" data-i18n="chute2.r">Ранг <b class="rank rank--1">GENIN</b> · от 1 победы</p>
+          </div>
+        </li>
+        <li class="chute">
+          <img src="assets/img/chute-pain.webp" width="600" height="338" loading="lazy" alt="Pain — Chibaku Tensei parachute">
+          <div class="chute__body">
+            <h3 data-i18n="chute3.t">Пейн · Чибаку Тенсей</h3>
+            <p data-i18n="chute3.p">Над головой висит каменная планета с кольцом Риннегана и облаком обломков. Закрыл парашют — Шинра Тенсей: ударные кольца и россыпь камней.</p>
+            <p class="chute__rank" data-i18n="chute3.r">Ранг <b class="rank rank--2">CHUNIN</b> · от 3 побед</p>
+          </div>
+        </li>
+        <li class="chute">
+          <img src="assets/img/chute-crows.webp" width="600" height="338" loading="lazy" alt="Itachi — crows parachute">
+          <div class="chute__body">
+            <h3 data-i18n="chute4.t">Итачи · Вороны</h3>
+            <p data-i18n="chute4.p">Шесть воронов кружат над твоей головой, пока ты падаешь.</p>
+            <p class="chute__rank" data-i18n="chute4.r">Ранг <b class="rank rank--3">JONIN</b> · от 8 побед</p>
+          </div>
+        </li>
+        <li class="chute">
+          <img src="assets/img/chute-deidara.webp" width="600" height="338" loading="lazy" alt="Deidara — clay bird parachute">
+          <div class="chute__body">
+            <h3 data-i18n="chute5.t">Дейдара · Глиняная птица</h3>
+            <p data-i18n="chute5.p">Белая глиняная птица несёт тебя на себе. Закрыл парашют — «КАЦУ!»: птица взрывается, но никому не больно.</p>
+            <p class="chute__rank" data-i18n="chute5.r">Ранг <b class="rank rank--4">ANBU</b> · от 20 побед</p>
+          </div>
+        </li>
+        <li class="chute chute--how">
+          <div class="chute__body">
+            <h3 data-i18n="chutehow.t">Как пользоваться</h3>
+            <p data-i18n="chutehow.p1">Зажми <kbd>E</kbd> в воздухе — парашют раскроется.</p>
+            <p data-i18n="chutehow.p2"><code>/парашют</code> в чате — меню выбора. Выбор запоминается; «авто» ставит самый редкий из открытых.</p>
+            <p class="chute__rank" data-i18n="chutehow.p3">Ранг растёт с победами на картах: ACADEMY 0 · GENIN 1 · CHUNIN 3 · JONIN 8 · ANBU 20 · SANNIN 45 · KAGE 90. Он виден в чате рядом с ником, а <code>/rank</code> покажет твой.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="hint" data-i18n="chutes.shot">Картинки — отрисовка моделей парашютов, в игре всё выглядит немного иначе.</p>
     </div>
   </div>
 </section>

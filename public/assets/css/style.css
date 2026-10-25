@@ -124,6 +124,22 @@ kbd{padding:1px 7px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chips li{padding:4px 10px;font:11px var(--mono)}
 
+/* парашюты: карточки с картинкой и рангом */
+.chutes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:8px;margin-bottom:10px}
+.chute{display:flex;flex-direction:column;background:var(--well);border:1px solid;border-color:var(--lo) var(--hi) var(--hi) var(--lo)}
+.chute img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#3b3b3b}
+.chute__body{display:flex;flex-direction:column;flex:1;gap:6px;padding:10px 12px 12px}
+.chute h3{font-size:12px;line-height:1.2;color:var(--gold)}
+.chute p{font-size:12px}
+.chute__rank{margin-top:auto;padding-top:4px;font-size:11px;color:var(--mute)}
+.chute--how .chute__body{padding-top:12px}
+.chute--how .chute__rank{margin-top:4px}
+.rank{letter-spacing:.03em}
+.rank--0{color:#bbb}
+.rank--1{color:#6d4}
+.rank--2{color:#8bf}
+.rank--3,.rank--4{color:#f66}
+
 /* VIP: текст и две модели, которые поворачиваются */
 .vip{display:grid;grid-template-columns:minmax(0,1fr) 270px 270px;gap:8px;align-items:start}
 .vip__text{display:grid;gap:10px;justify-items:start;padding-right:12px}
